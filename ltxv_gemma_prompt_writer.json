@@ -1,0 +1,470 @@
+{
+  "id": "4e65c5f4-0cd0-4db7-8a6e-49fa6e5bb72e",
+  "revision": 0,
+  "last_node_id": 41,
+  "last_link_id": 53,
+  "nodes": [
+    {
+      "id": 36,
+      "type": "GetNode",
+      "pos": [
+        18.949052810668945,
+        -2246.9365234375
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "*",
+          "name": "*",
+          "type": "*"
+        }
+      ],
+      "title": "GetNode",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 39,
+      "type": "Note",
+      "pos": [
+        -442.8728332519531,
+        -1139.8021240234375
+      ],
+      "size": [
+        666.8423461914062,
+        540.0879516601562
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "**Role:** You are an expert **Cinematographer and LTX-2.3 Prompt Engineer**. Your goal is to transform a user's basic idea into a detailed, story-driven video prompt that follows the specific technical requirements of the LTX-2 model.\n\n**The Structure of a Perfect Prompt:**\nEvery prompt you generate must include these six elements integrated into a **single, flowing paragraph**:\n1.  **Establish the Shot:** Start with cinematic terms (e.g., Close-up, Wide shot, Cinematic, Film Noir) to set the style and scale.\n2.  **Set the Scene:** Describe the lighting (e.g., warm golden light, neon glow), textures, and atmospheric elements (e.g., fog, rain, dust).\n3.  **Define Characters:** Describe age, clothing, and physical traits. **Important:** Never use emotional labels like \"sad\" or \"happy.\" Instead, describe **physical cues** (e.g., \"shoulders slumped,\" \"eyes wide with focus,\" \"a shaky breath\").\n4.  **Describe the Action:** Detail a core sequence of actions using **present tense verbs** that flow naturally from start to finish.\n5.  **Identify Camera Movement:** Specify how the camera moves (e.g., \"slow dolly in,\" \"pan right,\" \"handheld tracking\") and what new objects or details are revealed by this movement.\n6.  **Audio and Dialogue:** Describe ambient sounds and music. Place all dialogue inside **quotation marks** and specify the tone or accent.\n\n**Writing Guidelines (Strict Adherence Required):**\n*   **Paragraph Style:** Do not use bullet points. Write 4 to 8 descriptive sentences in one cohesive block.\n*   **Detail Matching:** Provide more precise detail for Close-ups than for Wide shots.\n*   **Avoid:** Do not include text, logos, or brand names. Avoid overly complex or chaotic physics (like juggling).\n*   **Style:** Prioritize cinematic compositions, emotive human moments, and stylized aesthetics.\n\nUser Input:  white sand beach near Asian metropolis, aerial drone camera moves up slowly to see more of the beach and city skyline, Godzilla walks out of the ocean, breathing fire, walks toward the city, lays down on the beach, goes to sleep"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 11,
+      "type": "LoadImage",
+      "pos": [
+        -286.6265869140625,
+        -1531.9395751953125
+      ],
+      "size": [
+        320,
+        330
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        },
+        {
+          "label": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            48
+          ]
+        },
+        {
+          "label": "MASK",
+          "name": "MASK",
+          "type": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "image": true,
+          "upload": true
+        }
+      },
+      "widgets_values": [
+        "9dbeb7d89184d44882ee6c924418c02d718966bfdff9d147c4d73012a0ad95b1.png",
+        "image"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "DualCLIPLoaderGGUF",
+      "pos": [
+        -467.2637939453125,
+        -2000.0018310546875
+      ],
+      "size": [
+        492.8868713378906,
+        137.10049438476562
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip_name1",
+          "name": "clip_name1",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name1"
+          }
+        },
+        {
+          "label": "clip_name2",
+          "name": "clip_name2",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name2"
+          }
+        },
+        {
+          "label": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoaderGGUF",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "gemma_3_12B_it_fp8_e4m3fn.safetensors",
+        "ltx-2.3_text_projection_bf16.safetensors",
+        "ltxv"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "PreviewAny",
+      "pos": [
+        985.2994384765625,
+        -1445.1580810546875
+      ],
+      "size": [
+        538.4443969726562,
+        611.022705078125
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "source",
+          "name": "source",
+          "type": "*",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "TextGenerateLTX2Prompt",
+      "pos": [
+        284.29620361328125,
+        -1735.17333984375
+      ],
+      "size": [
+        460.75,
+        680.888916015625
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 52
+        },
+        {
+          "label": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 48
+        },
+        {
+          "label": "video",
+          "name": "video",
+          "shape": 7,
+          "type": "IMAGE"
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO"
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "label": "max_length",
+          "name": "max_length",
+          "type": "INT",
+          "widget": {
+            "name": "max_length"
+          }
+        },
+        {
+          "label": "sampling_mode",
+          "name": "sampling_mode",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "sampling_mode"
+          }
+        },
+        {
+          "label": "thinking",
+          "name": "thinking",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "thinking"
+          }
+        },
+        {
+          "label": "use_default_template",
+          "name": "use_default_template",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_default_template"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "label": "generated_text",
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            46,
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextGenerateLTX2Prompt",
+        "cnr_id": "comfy-core",
+        "ver": "0.14.1",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "prompt": true
+          },
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        },
+        "widget_ue_connectable": {
+          "use_default_template": true,
+          "prompt": true,
+          "thinking": true,
+          "sampling_mode": true,
+          "max_length": true
+        }
+      },
+      "widgets_values": [
+        "**Role:** You are an expert **Cinematographer and LTX-2.3 Prompt Engineer**. Your goal is to transform a user's basic idea into a detailed, story-driven video prompt that follows the specific technical requirements of the LTX-2 model.\n\n**The Structure of a Perfect Prompt:**\nEvery prompt you generate must include these six elements integrated into a **single, flowing paragraph**:\n1.  **Establish the Shot:** Start with cinematic terms (e.g., Close-up, Wide shot, Cinematic, Film Noir) to set the style and scale.\n2.  **Set the Scene:** Describe the lighting (e.g., warm golden light, neon glow), textures, and atmospheric elements (e.g., fog, rain, dust).\n3.  **Define Characters:** Describe age, clothing, and physical traits. **Important:** Never use emotional labels like \"sad\" or \"happy.\" Instead, describe **physical cues** (e.g., \"shoulders slumped,\" \"eyes wide with focus,\" \"a shaky breath\").\n4.  **Describe the Action:** Detail a core sequence of actions using **present tense verbs** that flow naturally from start to finish.\n5.  **Identify Camera Movement:** Specify how the camera moves (e.g., \"slow dolly in,\" \"pan right,\" \"handheld tracking\") and what new objects or details are revealed by this movement.\n6.  **Audio and Dialogue:** Describe ambient sounds and music. Place all dialogue inside **quotation marks** and specify the tone or accent.\n\n**Writing Guidelines (Strict Adherence Required):**\n*   **Paragraph Style:** Do not use bullet points. Write 4 to 8 descriptive sentences in one cohesive block.\n*   **Detail Matching:** Provide more precise detail for Close-ups than for Wide shots.\n*   **Avoid:** Do not include text, logos, or brand names. Avoid overly complex or chaotic physics (like juggling).\n*   **Style:** Prioritize cinematic compositions, emotive human moments, and stylized aesthetics.\n\nUser Input:  athletic male lifeguard poses for the camera",
+        1024,
+        "on",
+        1.0000000000000004,
+        64,
+        0.95,
+        0.05,
+        1.05,
+        0,
+        0,
+        false,
+        true
+      ]
+    },
+    {
+      "id": 41,
+      "type": "easy saveText",
+      "pos": [
+        989.2694091796875,
+        -1715.1263427734375
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 53
+        },
+        {
+          "label": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "text",
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "easy saveText"
+      },
+      "widgets_values": [
+        "",
+        "ltxv_gemma_prompt",
+        "txt",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      46,
+      7,
+      0,
+      34,
+      0,
+      "*"
+    ],
+    [
+      48,
+      11,
+      0,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      52,
+      33,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      53,
+      7,
+      0,
+      41,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreviewrate": 0,
+    "frontendVersion": "1.23.0",
+    "VHS_latentpreview": false,
+    "ds": {
+      "scale": 0.7247295000000012,
+      "offset": [
+        405.7337924599266,
+        1900.0233793728216
+      ]
+    }
+  },
+  "version": 0.4
+}
