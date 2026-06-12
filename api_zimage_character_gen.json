@@ -1,0 +1,408 @@
+{
+  "16": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "AUTO"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "17": {
+    "inputs": {
+      "mask": [
+        "51",
+        3
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "18": {
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Mask"
+    }
+  },
+  "29": {
+    "inputs": {
+      "width": 1024,
+      "height": 576,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "30": {
+    "inputs": {
+      "samples": [
+        "63",
+        0
+      ],
+      "vae": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "43": {
+    "inputs": {
+      "images": [
+        "51",
+        1
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Cropped (refined)"
+    }
+  },
+  "51": {
+    "inputs": {
+      "guide_size": 512,
+      "guide_size_for": true,
+      "max_size": 2432,
+      "seed": 1112068213730741,
+      "steps": 2,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.6,
+      "feather": 7,
+      "noise_mask": true,
+      "force_inpaint": false,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 0,
+      "bbox_crop_factor": 4,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": 0,
+      "sam_threshold": 0.97,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": "",
+      "cycle": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 25,
+      "tiled_encode": false,
+      "tiled_decode": false,
+      "image": [
+        "30",
+        0
+      ],
+      "model": [
+        "112",
+        0
+      ],
+      "clip": [
+        "102",
+        0
+      ],
+      "vae": [
+        "101",
+        0
+      ],
+      "positive": [
+        "92",
+        0
+      ],
+      "negative": [
+        "111",
+        0
+      ],
+      "bbox_detector": [
+        "53",
+        0
+      ],
+      "sam_model_opt": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "52": {
+    "inputs": {
+      "images": [
+        "51",
+        2
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "53": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "63": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 349476215284329,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "110",
+        0
+      ],
+      "positive": [
+        "90",
+        0
+      ],
+      "negative": [
+        "109",
+        0
+      ],
+      "latent_image": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "78": {
+    "inputs": {
+      "filename_prefix": "zimage_character/z",
+      "images": [
+        "81",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image - Retouched"
+    }
+  },
+  "81": {
+    "inputs": {
+      "anything": [
+        "51",
+        0
+      ]
+    },
+    "class_type": "easy cleanGpuUsed",
+    "_meta": {
+      "title": "Clean VRAM Used"
+    }
+  },
+  "90": {
+    "inputs": {
+      "text": "\n",
+      "clip": [
+        "118",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive prompt"
+    }
+  },
+  "92": {
+    "inputs": {
+      "text": "realistic detailed face",
+      "clip": [
+        "119",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "面部相關提示詞-正面 (Facial related prompts - positive)"
+    }
+  },
+  "98": {
+    "inputs": {
+      "unet_name": "z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "99": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "100": {
+    "inputs": {
+      "vae_name": "FLUX1\\ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "101": {
+    "inputs": {
+      "vae_name": "FLUX1\\ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "102": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "105": {
+    "inputs": {
+      "unet_name": "z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "109": {
+    "inputs": {
+      "conditioning": [
+        "90",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "110": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "118",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "111": {
+    "inputs": {
+      "conditioning": [
+        "92",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "112": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "118": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "lora": "zimage\\Hands_v2.safetensors",
+        "strength": 0.8,
+        "on": false
+      },
+      "lora_2": {
+        "lora": "zimage\\oppai_nipples.safetensors",
+        "strength": 0.8,
+        "on": false
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "98",
+        0
+      ],
+      "clip": [
+        "99",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "119": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "105",
+        0
+      ],
+      "clip": [
+        "102",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  }
+}

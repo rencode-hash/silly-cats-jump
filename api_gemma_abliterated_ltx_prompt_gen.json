@@ -1,0 +1,71 @@
+{
+  "7": {
+    "inputs": {
+      "prompt": "**Role:** You are an expert **Cinematographer and LTX-2.3 Prompt Engineer**. Your goal is to transform a user's basic idea into a detailed, story-driven video prompt that follows the specific technical requirements of the LTX-2 model.\n\n**The Structure of a Perfect Prompt:**\nEvery prompt you generate must include these six elements integrated into a **single, flowing paragraph**:\n1.  **Establish the Shot:** Start with cinematic terms (e.g., Close-up, Wide shot, Cinematic, Film Noir) to set the style and scale.\n2.  **Set the Scene:** Describe the lighting (e.g., warm golden light, neon glow), textures, and atmospheric elements (e.g., fog, rain, dust).\n3.  **Define Characters:** Describe age, clothing, and physical traits. **Important:** Never use emotional labels like \"sad\" or \"happy.\" Instead, describe **physical cues** (e.g., \"shoulders slumped,\" \"eyes wide with focus,\" \"a shaky breath\").\n4.  **Describe the Action:** Detail a core sequence of actions using **present tense verbs** that flow naturally from start to finish.\n5.  **Identify Camera Movement:** Specify how the camera moves (e.g., \"slow dolly in,\" \"pan right,\" \"handheld tracking\") and what new objects or details are revealed by this movement.\n6.  **Audio and Dialogue:** Describe ambient sounds and music. Place all dialogue inside **quotation marks** and specify the tone or accent.\n\n**Writing Guidelines (Strict Adherence Required):**\n*   **Paragraph Style:** Do not use bullet points. Write 4 to 8 descriptive sentences in one cohesive block.\n*   **Detail Matching:** Provide more precise detail for Close-ups than for Wide shots.\n*   **Avoid:** Do not include text, logos, or brand names. Avoid overly complex or chaotic physics (like juggling).\n*   **Style:** Prioritize cinematic compositions, emotive human moments, and stylized aesthetics.\n\nA female necromancer stands in her lair, asks \"can I get a crumb of magic?\"",
+      "max_length": 800,
+      "sampling_mode": "off",
+      "thinking": false,
+      "use_default_template": true,
+      "clip": [
+        "33",
+        0
+      ],
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "TextGenerateLTX2Prompt",
+    "_meta": {
+      "title": "TextGenerateLTX2Prompt"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": "ae7e6cf08725a1d2ccf18f05897aa602d184184edf609a8db84faab29192fa02.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "33": {
+    "inputs": {
+      "clip_name1": "gemma-3-12b-it-abliterated-v2.q8_0.gguf",
+      "clip_name2": "ltx-2.3_text_projection_bf16.safetensors",
+      "type": "ltxv"
+    },
+    "class_type": "DualCLIPLoaderGGUF",
+    "_meta": {
+      "title": "DualCLIPLoader (GGUF)"
+    }
+  },
+  "34": {
+    "inputs": {
+      "source": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "35": {
+    "inputs": {
+      "output_file_path": "",
+      "file_name": "out",
+      "file_extension": "txt",
+      "overwrite": true,
+      "text": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "easy saveText",
+    "_meta": {
+      "title": "Save Text"
+    }
+  }
+}
