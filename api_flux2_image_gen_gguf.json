@@ -1,0 +1,125 @@
+{
+  "6": {
+    "inputs": {
+      "text": "A fashion photograph of a woman, 30 years old. She is weating A lightweight linen matching set consisting of a tailored vest top and relaxed high-waisted trousers in a neon pink color. Woven leather sandals and a small designer tote maintain a luxurious warm-weather aesthetic. Extravagent gold jewelry encrusted with gemstones, glowing natural makeup, and a yellow silk scarf tied loosely around the bag add understated elegance. Comfortable, refined, and perfectly suited for a rooftop evening overlooking the city. Her body is turned about 45 degrees from the camera while her face remains mostly forward. One hand rests gently along her collarbone or neckline, and her expression is serene and poised. The pose emphasizes facial features while creating graceful lines through the shoulders and neck. Standing on a rocky overlook high above an industrial section of a large metropolis that has heaps of wrecked cars, destoyed buildings, radioactive waste, garbage piles, large storage warehouses, the woman faces partially toward the camera rather than away from it. The sweeping landscape forms the backdrop while natural sunlight highlights her face. The wind catches her hair and jacket, creating a sense of movement and adventure. Her expression suggests wonder and resilience. Professional quality, sharp focus.",
+      "clip": [
+        "214",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "163": {
+    "inputs": {
+      "seed": 463355735061036,
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "212",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "190",
+        0
+      ],
+      "latent_image": [
+        "197",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "164": {
+    "inputs": {
+      "samples": [
+        "163",
+        0
+      ],
+      "vae": [
+        "196",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "190": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Conditioning Zero Out"
+    }
+  },
+  "196": {
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "197": {
+    "inputs": {
+      "width": 1280,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyFlux2LatentImage",
+    "_meta": {
+      "title": "Empty Flux 2 Latent"
+    }
+  },
+  "203": {
+    "inputs": {
+      "filename_prefix": "sg_hmc",
+      "images": [
+        "164",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "212": {
+    "inputs": {
+      "unet_name": "flux-2-klein-4b-Q6_K.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "214": {
+    "inputs": {
+      "clip_name": "qwen3-8b-abliterated-q4_k_m.gguf",
+      "type": "flux2"
+    },
+    "class_type": "CLIPLoaderGGUF",
+    "_meta": {
+      "title": "CLIPLoader (GGUF)"
+    }
+  }
+}
